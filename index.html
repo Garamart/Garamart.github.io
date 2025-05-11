@@ -36,30 +36,24 @@ body{
 <input class="button" id="students" type="button" value="Список студентів">
 <div id="output"></div>
 
-<script>
+//<script>
     const outputDiv = document.getElementById('output');
 
     document.getElementById("languages").addEventListener("click", () => {
       fetch("1.txt")
         .then(response => response.json())
         .then(data => {
-          outputDiv.innerHTML = "<strong>Мови програмування:</strong><br>"+
-            data.map(lang => `<li>${lang}</li>`).join("") +
-            "</ul>";
+          outputDiv.innerHTML = data.map(lang => `<li>${lang}</li>`).join("")";
         })
-        .catch(error => contentDiv.textContent = "Помилка при завантаженні мов.");
     });
 
     document.getElementById("students").addEventListener("click", () => {
       fetch("2.txt")
         .then(response => response.json())
         .then(data => {
-          outputDiv.innerHTML = "<strong>Студенти:</strong><br>" +
-            data.map(name => `<li>${name}</li>`).join("");
+          outputDiv.innerHTML = data.map(name => `<li>${name}</li>`).join("");
         })
-        .catch(error => outputDiv.textContent = 'Помилка при завантаженні студентів.');
     });
-
 </script>
 
 </body>
