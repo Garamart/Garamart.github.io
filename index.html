@@ -51,7 +51,7 @@ body{
       fetch("2.txt")
         .then(response => response.json())
         .then(data => {
-          outputDiv.innerHTML ="<ul>"+ data.map(name => `<li>${name}</li>`).join("")+"</ul>";
+          outputDiv.innerHTML ="<ul>"+data.map(name => `<li>${name}</li>`).join("")+"</ul>";
         })
     });
 </script>
