@@ -43,7 +43,7 @@ body{
       fetch("1.txt")
         .then(response => response.json())
         .then(data => {
-          outputDiv.innerHTML = data.map(lang => `<li>${lang}</li>`).join("")";
+          outputDiv.innerHTML = "<ul>"+data.map(lang => `<li>${lang}</li>`).join("")+"</ul>";
         })
     });
 
@@ -51,7 +51,7 @@ body{
       fetch("2.txt")
         .then(response => response.json())
         .then(data => {
-          outputDiv.innerHTML = data.map(name => `<li>${name}</li>`).join("");
+          outputDiv.innerHTML = "<ul>"+data.map(name => `<li>${name}</li>`).join("")+"</ul>";
         })
     });
 </script>
