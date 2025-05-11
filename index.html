@@ -32,33 +32,33 @@ body{
 </head>
 <body>
 
-<input class="button" id="languagesLink" type="button" value="Список мов">
-<input class="button" id="studentsLink" type="button" value="Список студентів">
+<input class="button" id="languages" type="button" value="Список мов">
+<input class="button" id="students" type="button" value="Список студентів">
 <div id="output"></div>
 
 <script>
-    const contentDiv = document.getElementById('output');
+    const outputDiv = document.getElementById('output');
 
-    document.getElementById('languagesLink').addEventListener('click', () => {
+    document.getElementById('languages').addEventListener('click', () => {
       fetch('1.txt')
         .then(response => response.json())
         .then(data => {
-          contentDiv.innerHTML = '<strong>Мови програмування:</strong><ul>' +
+          outputDiv.innerHTML = '<strong>Мови програмування:</strong><ul>' +
             data.map(lang => `<li>${lang}</li>`).join('') +
             '</ul>';
         })
         .catch(error => contentDiv.textContent = 'Помилка при завантаженні мов.');
     });
 
-    document.getElementById('studentsLink').addEventListener('click', () => {
+    document.getElementById('students').addEventListener('click', () => {
       fetch('2.txt')
         .then(response => response.json())
         .then(data => {
-          contentDiv.innerHTML = '<strong>Студенти:</strong><ul>' +
+          outputDiv.innerHTML = '<strong>Студенти:</strong><ul>' +
             data.map(name => `<li>${name}</li>`).join('') +
             '</ul>';
         })
-        .catch(error => contentDiv.textContent = 'Помилка при завантаженні студентів.');
+        .catch(error => outputDiv.textContent = 'Помилка при завантаженні студентів.');
     });
 
 </script>
