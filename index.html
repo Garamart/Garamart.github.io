@@ -39,24 +39,23 @@ body{
 <script>
     const outputDiv = document.getElementById('output');
 
-    document.getElementById('languages').addEventListener('click', () => {
-      fetch('1.txt')
+    document.getElementById("languages").addEventListener("click", () => {
+      fetch("1.txt")
         .then(response => response.json())
         .then(data => {
-          outputDiv.innerHTML = '<strong>Мови програмування:</strong><br><ul>' +
-            data.map(lang => `<li>${lang}</li>`).join('') +
-            '</ul>';
+          outputDiv.innerHTML = "<strong>Мови програмування:</strong><br>"+
+            data.map(lang => `<li>${lang}</li>`).join("") +
+            "</ul>";
         })
-        .catch(error => contentDiv.textContent = 'Помилка при завантаженні мов.');
+        .catch(error => contentDiv.textContent = "Помилка при завантаженні мов.");
     });
 
-    document.getElementById('students').addEventListener('click', () => {
-      fetch('2.txt')
+    document.getElementById("students").addEventListener("click", () => {
+      fetch("2.txt")
         .then(response => response.json())
         .then(data => {
-          outputDiv.innerHTML = '<strong>Студенти:</strong><br><ul>' +
-            data.map(name => `<li>${name}</li>`).join('') +
-            '</ul>';
+          outputDiv.innerHTML = "<strong>Студенти:</strong><br>" +
+            data.map(name => `<li>${name}</li>`).join("");
         })
         .catch(error => outputDiv.textContent = 'Помилка при завантаженні студентів.');
     });
