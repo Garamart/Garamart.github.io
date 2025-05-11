@@ -1,0 +1,12 @@
+[
+  "JavaScript",
+  "Python",
+  "Java",
+  "C++",
+  "C#",
+  "Go",
+  "Rust",
+  "Ruby",
+  "PHP",
+  "TypeScript"
+]

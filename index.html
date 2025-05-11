@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>lab5</title>
+<style>
+body{
+	text-align:center;
+	background-color:#030209;
+	padding:50px
+}
+.button{
+	text-align:center;
+	width:210px;
+	height:30px;
+	font-size:20px;
+	font-weight:bold;
+}
+#output {
+	padding:8px;
+    margin: 40px auto;
+    width: 500px;
+    height: 70%;
+    background-color: #9c8200;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+	font-size:18px;
+	align-items: center;
+	justify-content: center;
+}
+</style>
+
+</head>
+<body>
+
+<input class="button" id="languagesLink" type="button" value="Список мов">
+<input class="button" id="studentsLink" type="button" value="Список студентів">
+<div id="output"></div>
+
+<script>
+    const contentDiv = document.getElementById('output');
+
+    document.getElementById('languagesLink').addEventListener('click', () => {
+      fetch('1.txt')
+        .then(response => response.json())
+        .then(data => {
+          contentDiv.innerHTML = '<strong>Мови програмування:</strong><ul>' +
+            data.map(lang => `<li>${lang}</li>`).join('') +
+            '</ul>';
+        })
+        .catch(error => contentDiv.textContent = 'Помилка при завантаженні мов.');
+    });
+
+    document.getElementById('studentsLink').addEventListener('click', () => {
+      fetch('2.txt')
+        .then(response => response.json())
+        .then(data => {
+          contentDiv.innerHTML = '<strong>Студенти:</strong><ul>' +
+            data.map(name => `<li>${name}</li>`).join('') +
+            '</ul>';
+        })
+        .catch(error => contentDiv.textContent = 'Помилка при завантаженні студентів.');
+    });
+
+</script>
+
+</body>
+</html>
