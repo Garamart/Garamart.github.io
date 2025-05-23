@@ -1,60 +1,135 @@
 <html>
 <head>
-<title>lab5</title>
+<title>Проект</title>
 <style>
-body{
-	text-align:center;
-	background-color:#030209;
-	padding:50px
-}
-.button{
-	text-align:center;
-	width:210px;
-	height:30px;
-	font-size:20px;
-	font-weight:bold;
-}
-#output {
-	padding:8px;
-    margin: 40px auto;
-    width: 500px;
-    height: 70%;
-    background-color: #9c8200;
-    border-radius: 10px;
-    text-align: center;
-    display: flex;
-	font-size:18px;
-	align-items: center;
-	justify-content: center;
-}
+	html {
+		scroll-behavior: smooth;
+	}
+    body {
+		font-family: sans-serif;
+		margin: 0;
+		line-height: 1.6;
+		background-image:url(bg.jpg)
+    }
+	.main{
+		width:60rem;
+		margin: 0 auto;
+	}
+    header {
+		background: #7ec8a5;
+		color: white;
+		padding: 2rem;
+		text-align: center;
+    }
+    nav {
+		background: #5aa187;
+		padding: 1rem;
+		text-align: center;
+    }
+    nav a {
+		color: white;
+		margin: 0 1rem;
+		text-decoration: none;
+    }
+    main {
+		padding: 2rem;
+		background-color: rgba(250, 240, 230, 0.6);    
+	}
+    section {
+		margin-bottom: 3rem;
+    }
+    footer {
+		background: #333;
+		color: white;
+		text-align: center;
+		padding: 1rem;
+    }
+	img {
+		width:40rem;
+		margin:1rem;
+		border-radius:10px;
+		transition: transform 0.2s ease;
+	}
+	img:hover {
+		border-radius:5px;
+		transform: scale(1.1);
+	}
+    #backToTop {
+		display: none;
+		position: fixed;
+		bottom: 80px;
+		right: 80px;
+		background-color: #5aa187;	
+		color: white;
+		border: none;
+		width: 120px;
+		height: 80px;
+		font-size: 22px;
+		border-radius: 50%;
+		cursor: pointer;
+		box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+		transition: background-color 0.3s ease;
+    }
 </style>
+  
+<script>
+	const backToTop = document.getElementById("backToTop");
+
+	window.onscroll = function () {
+		if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+			backToTop.style.display = "block";
+		} else {
+			backToTop.style.display = "none";
+		}
+	};
+
+	function scrollToTop() {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
+</script>
 
 </head>
 <body>
+<div class="main">
 
-<input class="button" id="languages" type="button" value="Список мов">
-<input class="button" id="students" type="button" value="Список студентів">
-<div id="output"></div>
+<header>
+	<h1>Йога-Студія "Проект з Web технологій"</h1>
+</header>
 
-//<script>
-    const outputDiv = document.getElementById('output');
+<nav>
+	<a href="#1">Про нас</a>
+	<a href="#2">Заняття</a>
+	<a href="#3">Контакти</a>
+</nav>
 
-    document.getElementById("languages").addEventListener("click", () => {
-      fetch("1.txt")
-        .then(response => response.json())
-        .then(data => {
-          outputDiv.innerHTML ="<ul>"+data.map(lang => `<li>${lang}</li>`).join("")+"</ul>";
-        })
-    });
+<main>
+	<section id="1">
+		<h2>Про нас</h2>
+		<p>Наша студія була вигадана для лінивої проектної роботи одного студента в травні 2025 року. З цього дня ми прикладаємо всі зусилля щоби бути найкращою неіснуючою йога-студією, щоб Дмитро отримав свої бали за його роботу.</p>
+	</section>
+	<section id="2">
+		<h2>Наші заняття</h2>
+		<p>Насправді ми не проводимо занять, але наш засновник з виконав кілька лабораторних робіт з Web технологій.<br> Ось приклади цих робіт:</p>
+		<img src="Untitled1.png">
+		<img src="Untitled2.png">
+	</section>
+	<section id="3">
+		<h2>Контакти</h2>
+		<p>Ми не маємо фізичної адреси, електорнної пошти або номеру телефону. Якщо ви це читаєте, то можете особисто поговорити з засновником студії під час захисту його проектної роботи.</p>
+	</section>
+	<br>
+</main>
 
-    document.getElementById("students").addEventListener("click", () => {
-      fetch("2.txt")
-        .then(response => response.json())
-        .then(data => {
-          outputDiv.innerHTML ="<ul>"+data.map(name => `<li>${name}</li>`).join("")+"</ul>";
-        })
-    });
-</script>
+
+<footer>
+	<p>&copy; 2025 Йога-Студія "Проект з Web технологій"</p>
+	<p>Ми не несемо відповідальності за поганий дизайн та наповнення сайту</p>
+</footer>
+
+</div>
+
+
+<button id="backToTop" onclick="scrollToTop()">↑ Нагору</button>
 
 </body>
 </html>
