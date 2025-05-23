@@ -71,22 +71,7 @@
 		transition: background-color 0.3s ease;
     }
 </style>
-  
-<script>
-	const backToTop = document.getElementById("backToTop");
-
-	window.onscroll = function () {
-		if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
-			backToTop.style.display = "block";
-		} else {
-			backToTop.style.display = "none";
-		}
-	};
-
-	function scrollToTop() {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	}
-</script>
+ 
 
 </head>
 <body>
@@ -110,8 +95,8 @@
 	<section id="2">
 		<h2>Наші заняття</h2>
 		<p>Насправді ми не проводимо занять, але наш засновник з виконав кілька лабораторних робіт з Web технологій.<br> Ось приклади цих робіт:</p>
-		<img src="Untitled1.png">
-		<img src="Untitled2.png">
+		<img src="Untitled1.png" title="Лабораторна №3">
+		<img src="Untitled2.png" title="Лабораторна №4">
 	</section>
 	<section id="3">
 		<h2>Контакти</h2>
@@ -130,6 +115,22 @@
 
 
 <button id="backToTop" onclick="scrollToTop()">↑ Нагору</button>
+
+<script>
+	const backToTop = document.getElementById("backToTop");
+
+	window.onscroll = function () {
+		if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+			backToTop.style.display = "block";
+		} else {
+			backToTop.style.display = "none";
+		}
+	};
+
+	function scrollToTop() {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
+</script>
 
 </body>
 </html>
